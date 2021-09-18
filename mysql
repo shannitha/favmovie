@@ -1,0 +1,33 @@
+CREATE TABLE favomov (
+    [Movie Name] CHAR,
+    Actor        CHAR,
+    Actress      CHAR,
+    YOR          DATE,
+    Director     CHAR
+);
+
+INSERT INTO favomov (
+                        [Movie Name],
+                        Actor,
+                        Actress,
+                        YOR,
+                        Director
+                    )
+                    SELECT "Movie Name",
+                           Actor,
+                           Actress,
+                           YOR,
+                           Director
+                      FROM sqlitestudio_temp_table0;
+
+DROP TABLE sqlitestudio_temp_table0;
+
+PRAGMA foreign_keys = 1;
+                    
+
+select Actor,Actress from  favomov where YOR>2010;
+select *from  favomov where YOR>=2010;
+select distinct Actress  from  favomov;
+select *from  favomov where YOR>=2010 AND YOR>2014;
+Select * from favomov  order by YOR asc;
+Select * from favomov  order by Actress desc;
